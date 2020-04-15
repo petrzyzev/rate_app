@@ -1,0 +1,7 @@
+<%= form_with(url: "/submit", method: "post") do %>
+  <%= label_tag(:time, "Expires at:") %>
+  <%= text_field_tag(:time) %>
+  <%= label_tag(:rate, "Quaintity of rate:") %>
+  <%= text_field_tag(:rate) %>
+  <%= submit_tag("Submit") %>
+<% end %>
