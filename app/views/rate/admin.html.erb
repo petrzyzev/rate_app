@@ -1,7 +1,7 @@
-<%= form_with(url: "/submit", method: "post") do %>
-  <%= label_tag(:time, "Expires at:") %>
-  <%= text_field_tag(:time) %>
-  <%= label_tag(:rate, "Quaintity of rate:") %>
-  <%= text_field_tag(:rate) %>
+<%= form_with(url: "/submit", method: "post") do |f|%>
+  <%= label_tag(:date, "Expires at:") %>
+  <%= f.datetime_local_field :expire_time, value: @expire_time, min: Date.today%>
+  <%= label_tag(:forced_rate, "Quaintity of rate:") %>
+  <%= text_field_tag(:forced_rate, @forced_rate) %>
   <%= submit_tag("Submit") %>
 <% end %>
