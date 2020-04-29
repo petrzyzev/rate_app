@@ -1,14 +1,7 @@
 # frozen_string_literal: true
 
 class RateController < ApplicationController
-  def show
-    @expire_time = rate_data[:expire_time]
-    @rate = if @expire_time.to_time >= Time.now
-      rate_data[:forced_rate]
-    else
-      rate_data[:current_rate]
-    end
-  end
+  def show; end
 
   def admin
     @expire_time = rate_data[:expire_time]

@@ -1,9 +1,9 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("FetchChannel", {
+const fetchChannel = consumer.subscriptions.create("FetchChannel", {
   connected() {
     console.log('connected')
-    // Called when the subscription is ready for use on the server
+    fetchChannel.send({ action: 'send_rate' })
   },
 
   disconnected() {
