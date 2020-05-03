@@ -5,7 +5,6 @@ class RateController < ApplicationController
 
   def admin
     @expire_time = rate_data[:expire_time]
-    @current_rate = rate_data[:current_rate]
     @forced_rate = rate_data[:forced_rate]
   end
 
@@ -17,13 +16,10 @@ class RateController < ApplicationController
 
     Storage.save_to_file(new_rate_data)
 
-    displayed_rate = if rate_data[:expire_time].to_time >= Time.now
-      rate_data[:forced_rate]
-    else
-      rate_data[:current_rate]
-    end
+    rate = ExchangeRate.actual_rate
+    ActionCable.server.broadcast 'fetch', { rate: rate }
 
-    ActionCable.server.broadcast 'fetch', { rate: displayed_rate }
+    CurrentRateDisplay.display(params[:expire_time].to_time)
   end
 
   private

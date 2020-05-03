@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-class FetchChannel < ApplicationCable::Channel
-  def subscribed
-    stream_from 'fetch'
-  end
+class CurrentRateDisplayJob < ApplicationJob
+  queue_as :default
 
-  def send_rate
+  def perform
     rate = ExchangeRate.actual_rate
     ActionCable.server.broadcast 'fetch', { rate: rate }
   end

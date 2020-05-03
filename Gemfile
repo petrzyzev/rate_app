@@ -25,6 +25,10 @@ gem 'whenever', require: false
 
 gem 'dalli'
 
+gem 'sqlite3'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+
 gem 'rubocop-rspec'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

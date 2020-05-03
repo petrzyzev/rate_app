@@ -7,8 +7,13 @@ class RateFetcher
 
   attr_accessor :rate_requestor
 
+  def self.fetch
+    new(rate_requestor: RateRequestor.new).fetch
+  end
+
   def fetch
-    Rails.cache.fetch('external_rate', expires_in: 1.minute) { request_rate }
+    rate = request_rate
+    Storage.save_to_file(current_rate: rate)
   end
 
   def request_rate
