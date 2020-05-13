@@ -6,7 +6,7 @@ class FetchChannel < ApplicationCable::Channel
   end
 
   def send_rate
-    rate = ExchangeRate.actual_rate
+    rate = ExchangeRate.actual_rate || RateFetcher.fetch
     ActionCable.server.broadcast 'fetch', { rate: rate }
   end
 end

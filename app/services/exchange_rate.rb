@@ -12,7 +12,7 @@ class ExchangeRate
   end
 
   def forced_rate?
-    expire_time >= Time.now
+    forced_rate && expire_time >= Time.now
   end
 
   def forced_rate
@@ -20,7 +20,7 @@ class ExchangeRate
   end
 
   def expire_time
-    rate_data[:expire_time].to_time
+    rate_data[:expire_time]
   end
 
   def current_rate
