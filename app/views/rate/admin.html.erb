@@ -2,11 +2,11 @@
     <div><%= label_tag(:expire_time, "Expires at:") %></div>
     <div>
       <%= label_tag(:expire_time, "Date:") %>
-      <%= f.date_select(:expire_time, default: @time_params) %>
+      <%= f.date_select(:expire_time, default: @time_args) %>
     </div>
     <div>
       <%= label_tag(:expire_time, "Time:") %>
-      <%= f.time_select(:expire_time, include_seconds: true, ignore_date: true, default: @time_params)%>
+      <%= f.time_select(:expire_time, include_seconds: true, ignore_date: true, default: @time_args)%>
     <div>
   
   <%#= f.datetime_local_field :expire_time, value: @expire_time, min: Date.today%>

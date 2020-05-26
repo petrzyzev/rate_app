@@ -1,24 +1,16 @@
-# README
+# Rate App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application for [Funbox's test task(Level III, Q2)](https://dl.funbox.ru/qt-ruby.pdf).
 
-Things you may want to cover:
+## Usage
+### Setup and start
+- `bundle install` - install required dependencies
+- `rails test` - run tests
+- `rails s` - start server. Then you can visit `http://localhost:3000/` 
 
-* Ruby version
+### Description
 
-* System dependencies
+The application displays the current dollar rate. The exchange rate is periodically updated.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+On the route `/admin`, you can set the value of time and the dollar exchange rate.
+After that, the rate value on all pages of the application will be changed until the moment indicated on the page `/admin`
